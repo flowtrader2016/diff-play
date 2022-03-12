@@ -1,0 +1,17 @@
+name: pull request on push
+on: [push]
+jobs:
+  tos3:
+    runs-on: ubuntu-latest
+    steps:
+  
+      - name: Uses action github checkout@v2, for auto check-out
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
+  
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          delete-branch: true
